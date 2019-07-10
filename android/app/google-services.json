@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "34233970463",
+    "firebase_url": "https://hurri-229118.firebaseio.com",
+    "project_id": "hurri-229118",
+    "storage_bucket": "hurri-229118.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34233970463:android:06fc599c7fe88299",
+        "android_client_info": {
+          "package_name": "com.ucsc.hurri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "34233970463-2gb28gt29a19eohrhi0p1g57graai6c7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ucsc.hurri",
+            "certificate_hash": "ab6d57e291466ff8e092bdd1c8580403c86cc371"
+          }
+        },
+        {
+          "client_id": "34233970463-8d5gk54tif8tcgfsiu92pu4fkc0n381g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWqZc0Sk-81NE_8dRNVrJCZxtkP_7p1Ng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "34233970463-8d5gk54tif8tcgfsiu92pu4fkc0n381g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
