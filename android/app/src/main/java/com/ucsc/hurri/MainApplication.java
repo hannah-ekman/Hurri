@@ -3,6 +3,7 @@ package com.ucsc.hurri;
 import android.support.multidex.MultiDexApplication;
 
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.agontuk.RNFusedLocation.RNFusedLocationPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -23,7 +24,6 @@ import io.invertase.firebase.fabric.crashlytics.RNFirebaseCrashlyticsPackage;
 import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
 import io.invertase.firebase.functions.RNFirebaseFunctionsPackage;
 import io.invertase.firebase.instanceid.RNFirebaseInstanceIdPackage;
-import io.invertase.firebase.invites.RNFirebaseInvitesPackage;
 import io.invertase.firebase.links.RNFirebaseLinksPackage;
 import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
 import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
@@ -45,6 +45,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
+            new VectorIconsPackage(),
             new RNFusedLocationPackage(),
             new MapsPackage(),
             new RNGestureHandlerPackage(),
@@ -60,7 +61,6 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
         new RNFirebaseFirestorePackage(),
         new RNFirebaseFunctionsPackage(),
         new RNFirebaseInstanceIdPackage(),
-        new RNFirebaseInvitesPackage(),
         new RNFirebaseLinksPackage(),
         new RNFirebaseMessagingPackage(),
         new RNFirebaseNotificationsPackage(),

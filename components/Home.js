@@ -4,6 +4,7 @@ import { GoogleSignin, GoogleSigninButton, statusCodes } from 'react-native-goog
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
 import firebase from 'react-native-firebase';
+import UserLocationMarker from './UserLocationMarker';
 
 const styles = StyleSheet.create({
     container: {
@@ -29,8 +30,6 @@ export default class Home extends React.Component {
                 latitudeDelta: 0.0462,
                 longitudeDelta: 0.0261,
             },
-            userPosition: null,
-            watchId: null,
         };
     }
 
@@ -60,7 +59,6 @@ export default class Home extends React.Component {
                 },
                 { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
             );
-            this.trackPosition()
         }
     }
 
@@ -68,7 +66,7 @@ export default class Home extends React.Component {
         let navState = this.props.navigation.state.params;
         let prevState = prevProps.navigation.state.params;
         //check to prevent infinite looping
-        if ("loggedIn" in navState && navState.loggedIn !== prevProps.loggedIn) {
+        if ("loggedIn" in navState && navState.loggedIn !== prevState.loggedIn) {
             this.setState({ loggedIn: navState.loggedIn, user: navState.user });
         }
     }
@@ -108,9 +106,6 @@ export default class Home extends React.Component {
             const userInfo = await GoogleSignin.signIn();
             this.setState({ user: userInfo, loggedIn: true });
             this.props.navigation.setParams({ tabBarVisible: true });
-            if(this.state.showUserLocation){
-                this.trackPosition()
-            }
         } catch (error) {
             if (error.code === statusCodes.SIGN_IN_CANCELLED) {
                 console.warn("Cancelled");
@@ -137,35 +132,8 @@ export default class Home extends React.Component {
         this.setState({ user: currentUser });
     };
 
-    trackPosition = async () => {
-        this.state.watchId = Geolocation.watchPosition(
-            (position) => {
-                this.setState({
-                    userPosition: {
-                        latitude: position.coords.latitude,
-                        longitude: position.coords.longitude
-                    },
-                });
-                console.log(position);
-            },
-            (error) => {
-                console.log(error);
-            },
-            { enableHighAccuracy: true, distanceFilter: 0, interval: 5000, fastestInterval: 2000 }
-        );
-    }
-
-    stopTracking = () => {
-        if (this.state.watchId !== null) {
-            Geolocation.clearWatch(this.watchId);
-        }
-    }
-
     render() {
         const { navigate } = this.props.navigation;
-        if(this.state.user == null){
-            this.stopTracking()
-        }
         return (
             <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
                 {(this.state.loggedIn && this.state.user !== null) ? (
@@ -175,8 +143,7 @@ export default class Home extends React.Component {
                             style={styles.map}
                             region={this.state.region}
                         >
-                            {this.state.userPosition !== null && <Marker coordinate={this.state.userPosition} title="You">
-                            </Marker>}
+                            <UserLocationMarker showUserLocation={this.state.showUserLocation} />
                         </MapView>
                     </View>) :
                     (

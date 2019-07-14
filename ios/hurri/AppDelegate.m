@@ -7,6 +7,7 @@
 
 #import "AppDelegate.h"
 
+#import <GoogleMaps/GoogleMaps.h>
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -21,6 +22,9 @@
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"hurri"
                                             initialProperties:nil];
+  [GMSServices provideAPIKey:@"AIzaSyC_IL17v5AR33plV1i5QMOhVImXrbOK-sI"];
+  
+  
 
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
