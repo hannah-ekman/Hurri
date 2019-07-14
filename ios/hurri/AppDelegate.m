@@ -22,7 +22,7 @@
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"hurri"
                                             initialProperties:nil];
-  [GMSServices provideAPIKey:@"AIzaSyC_IL17v5AR33plV1i5QMOhVImXrbOK-sI"];
+  [GMSServices provideAPIKey:@"AIzaSyA8p_sZ7jYCyvaxgCdUmgSeQnoWIJ0oRJI"];
   
   
 

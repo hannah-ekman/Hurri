@@ -13,7 +13,6 @@ export default class Profile extends React.Component {
 
     async componentDidMount() {
         GoogleSignin.configure();
-        this.isSignedIn();
         this.getCurrentUser();
     }
 
@@ -24,14 +23,13 @@ export default class Profile extends React.Component {
         }
     }
 
-    isSignedIn = async () => {
-        const isSignedIn = await GoogleSignin.isSignedIn();
-        this.setState({ loggedIn: isSignedIn });
-    };
-
     getCurrentUser = async () => {
         const currentUser = await GoogleSignin.getCurrentUser();
+        console.warn(currentUser);
         this.setState({ user: currentUser });
+        if (currentUser == null) {
+            this.setState({ loggedIn: false });
+        }
     };
 
     signOut = async () => {

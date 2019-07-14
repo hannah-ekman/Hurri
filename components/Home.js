@@ -36,7 +36,6 @@ export default class Home extends React.Component {
 
     async componentDidMount() {
         GoogleSignin.configure();
-        this.isSignedIn();
         this.getCurrentUser();
         hasPermission = this.getLocationPermissions();
         this.props.navigation.setParams({ tabBarVisible: this.state.loggedIn });
@@ -105,6 +104,7 @@ export default class Home extends React.Component {
             await GoogleSignin.hasPlayServices();
             const userInfo = await GoogleSignin.signIn();
             this.setState({ user: userInfo, loggedIn: true });
+            console.warn(userInfo);
             this.props.navigation.setParams({ tabBarVisible: true });
         } catch (error) {
             if (error.code === statusCodes.SIGN_IN_CANCELLED) {
@@ -119,17 +119,14 @@ export default class Home extends React.Component {
         }
     };
 
-    isSignedIn = async () => {
-        const isSignedIn = await GoogleSignin.isSignedIn();
-        this.setState({ loggedIn: isSignedIn });
-        if (isSignedIn){
-            this.props.navigation.setParams({ tabBarVisible: true });
-        }
-    };
-
     getCurrentUser = async () => {
         const currentUser = await GoogleSignin.getCurrentUser();
-        this.setState({ user: currentUser });
+        this.setState({ user: currentUser, loggedIn: true});
+        if(currentUser == null){
+            this.setState({loggedIn: false});
+        }else{
+            this.props.navigation.setParams({ tabBarVisible: true });
+        }
     };
 
     render() {
