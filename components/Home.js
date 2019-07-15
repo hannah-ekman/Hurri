@@ -4,6 +4,7 @@ import { GoogleSignin, GoogleSigninButton, statusCodes } from 'react-native-goog
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
 import firebase from 'react-native-firebase';
+import { NavigationEvents } from 'react-navigation';
 import UserLocationMarker from './UserLocationMarker';
 
 const styles = StyleSheet.create({
@@ -68,6 +69,9 @@ export default class Home extends React.Component {
         if ("loggedIn" in navState && navState.loggedIn !== prevState.loggedIn) {
             this.setState({ loggedIn: navState.loggedIn, user: navState.user });
         }
+        if (prevProps.isFocused !== this.props.isFocused) {
+            this.getCurrentUser();
+        }
     }
 
     getLocationPermissions = async () =>{
@@ -104,7 +108,6 @@ export default class Home extends React.Component {
             await GoogleSignin.hasPlayServices();
             const userInfo = await GoogleSignin.signIn();
             this.setState({ user: userInfo, loggedIn: true });
-            console.warn(userInfo);
             this.props.navigation.setParams({ tabBarVisible: true });
         } catch (error) {
             if (error.code === statusCodes.SIGN_IN_CANCELLED) {
@@ -121,10 +124,17 @@ export default class Home extends React.Component {
 
     getCurrentUser = async () => {
         const currentUser = await GoogleSignin.getCurrentUser();
-        this.setState({ user: currentUser, loggedIn: true});
-        if(currentUser == null){
-            this.setState({loggedIn: false});
-        }else{
+        const isUserSignedIn = await GoogleSignin.isSignedIn();
+        this.setState({ user: currentUser, loggedIn: isUserSignedIn });
+        if (currentUser == null && isUserSignedIn) {
+            try {
+                const currentUser = await GoogleSignin.signInSilently();
+                this.setState({ user: currentUser });
+            } catch (error) {
+                this.setState({ user: null });
+            }
+        }
+        if(isUserSignedIn){
             this.props.navigation.setParams({ tabBarVisible: true });
         }
     };

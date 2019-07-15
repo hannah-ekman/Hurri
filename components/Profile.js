@@ -2,7 +2,9 @@ import React from 'react';
 import { StyleSheet, Platform, Image, Text, Button, View, ScrollView, YellowBox } from 'react-native';
 import { GoogleSignin } from 'react-native-google-signin';
 import firebase from 'react-native-firebase';
-export default class Profile extends React.Component {
+import { withNavigationFocus } from "react-navigation";
+
+class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,14 +23,22 @@ export default class Profile extends React.Component {
         if (this.props.navigation.state.params !== prevProps.navigation.state.params) {
             this.setState(this.props.navigation.state.params);
         }
+        if (prevProps.isFocused !== this.props.isFocused) {
+            this.getCurrentUser();
+        }
     }
 
     getCurrentUser = async () => {
         const currentUser = await GoogleSignin.getCurrentUser();
-        console.warn(currentUser);
-        this.setState({ user: currentUser });
-        if (currentUser == null) {
-            this.setState({ loggedIn: false });
+        const isUserSignedIn = await GoogleSignin.isSignedIn();
+        this.setState({ user: currentUser, loggedIn: isUserSignedIn });
+        if (currentUser == null && isUserSignedIn) {
+            try {
+                const currentUser = await GoogleSignin.signInSilently();
+                this.setState({ user: currentUser });
+            } catch (error) {
+                this.setState({ user: null });
+            }
         }
     };
 
@@ -69,3 +79,5 @@ export default class Profile extends React.Component {
         );
     }
 }
+
+export default withNavigationFocus(Profile);

@@ -54,8 +54,11 @@
 		ADDA258B0C3DE0261C60A364 /* libPods-hurri-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B23455DE3C4D5673E7318E /* libPods-hurri-tvOSTests.a */; };
 		B2DBDA6981194DC5A24C8C73 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE434FC758894638BC4E0205 /* Foundation.ttf */; };
 		BBA4696D93F74373A4F4A315 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA04F9F3AE2E4725A339B88A /* FontAwesome5_Solid.ttf */; };
-		BBCF0E4522DAB14A0017C3FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBCF0E1E22DAB14A0017C3FC /* GoogleService-Info.plist */; };
 		BBCF0E8822DBCF230017C3FC /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCF0E8722DBCF230017C3FC /* libRNGoogleSignin.a */; };
+		BBCF0EC022DBD5E10017C3FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBCF0EBF22DBD5E10017C3FC /* GoogleService-Info.plist */; };
+		BBCF0EC122DBD5E10017C3FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBCF0EBF22DBD5E10017C3FC /* GoogleService-Info.plist */; };
+		BBCF0EC222DBD5E10017C3FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBCF0EBF22DBD5E10017C3FC /* GoogleService-Info.plist */; };
+		BBCF0EC322DBD5E10017C3FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBCF0EBF22DBD5E10017C3FC /* GoogleService-Info.plist */; };
 		BEA5E9E69E634C62A1069741 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF303571CE3E4BE7AA63F6D6 /* MaterialCommunityIcons.ttf */; };
 		D125E4848B504DA79B1E6A95 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D815D03597A84E759BD9A2B9 /* MaterialIcons.ttf */; };
 		D245306FA8ED4453974BBA53 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC0C2DE3ED5F4FA7AC554D0B /* AntDesign.ttf */; };
@@ -389,9 +392,8 @@
 		B2121FE3F0701D7C33F213D3 /* Pods-hurri.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hurri.release.xcconfig"; path = "Pods/Target Support Files/Pods-hurri/Pods-hurri.release.xcconfig"; sourceTree = "<group>"; };
 		B2E0CADDB16D4C5E8253E486 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		B86F6D2B95A34447A778666C /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
-		BBCF0E1E22DAB14A0017C3FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "hurri/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		BBCF0E8622DBCF0B0017C3FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "hurri/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BBCF0E8722DBCF230017C3FC /* libRNGoogleSignin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNGoogleSignin.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBCF0EBF22DBD5E10017C3FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "hurri/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BC0C2DE3ED5F4FA7AC554D0B /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		C97DD56AE46E45398AF70E2E /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		CA346B7E0D05342E8E702E1C /* Pods-hurri-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hurri-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hurri-tvOSTests/Pods-hurri-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -564,7 +566,7 @@
 		13B07FAE1A68108700A75B9A /* hurri */ = {
 			isa = PBXGroup;
 			children = (
-				BBCF0E1E22DAB14A0017C3FC /* GoogleService-Info.plist */,
+				BBCF0EBF22DBD5E10017C3FC /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -679,7 +681,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				BBCF0E8622DBCF0B0017C3FC /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* hurri */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* hurriTests */,
@@ -1189,6 +1190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBCF0EC122DBD5E10017C3FC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1196,7 +1198,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBCF0E4522DAB14A0017C3FC /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				D245306FA8ED4453974BBA53 /* AntDesign.ttf in Resources */,
@@ -1208,6 +1209,7 @@
 				75262C0A9FB94849BF4C1887 /* FontAwesome5_Regular.ttf in Resources */,
 				BBA4696D93F74373A4F4A315 /* FontAwesome5_Solid.ttf in Resources */,
 				A8E7BECF7B8D4590BA825C66 /* Fontisto.ttf in Resources */,
+				BBCF0EC022DBD5E10017C3FC /* GoogleService-Info.plist in Resources */,
 				B2DBDA6981194DC5A24C8C73 /* Foundation.ttf in Resources */,
 				609E92E510C247849BE4B226 /* Ionicons.ttf in Resources */,
 				BEA5E9E69E634C62A1069741 /* MaterialCommunityIcons.ttf in Resources */,
@@ -1223,6 +1225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
+				BBCF0EC222DBD5E10017C3FC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1230,6 +1233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBCF0EC322DBD5E10017C3FC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1333,7 +1337,7 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
-				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates-Cpp.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -1355,7 +1359,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Cpp.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
