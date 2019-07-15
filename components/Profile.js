@@ -73,7 +73,7 @@ class Profile extends React.Component {
                 <Button
                     title="Home"
                     color="#a5e6d1"
-                    onPress={() => navigate('Home', this.state)}
+                    onPress={() => navigate('Home')}
                 />
             </View>
         );
